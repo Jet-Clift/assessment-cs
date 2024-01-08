@@ -1,0 +1,38 @@
+extraLargArray using doublerAppend: 2.82 ms
+extraLargArray using doublerInsert: 632.88 ms
+
+largeArray using doublerAppend: 472.5 μs
+largeArray using doublerInsert: 6.32 ms
+
+mediumArray using doublerAppend: 113.1 μs
+mediumArray using doublerInsert: 149.9 μs
+
+smallArray using doublerAppend: 109.5 μs
+smallArray using doublerInsert: 45.4 μs
+
+tinyArray using doublerAppend: 64.9 μs
+tinyArray using doublerInsert: 33.1 μs
+
+
+
+beginning at the extraLargArray and moving down to tinyArray, 
+the doublerAppend is much faster than the doublerInsert. But as 
+the array shrinks, requiring less from the functions, the line 
+between the two functions cross and by the end the doublerInsert 
+is faster. Overall, I believe the doublerAppend is a better solution 
+because although  it is slower for smaller arrays, its only nanoseconds 
+behind. Its way quicker when it matters; more than a half second faster 
+for the extraLargArray.
+
+I believe the append function is more of a linear function and 
+the insert is an exponential function, in terms of time 
+complexity. The insert function requires a whole new step, as it 
+uses unshift instead of push, requiring the arrays index number to shift 
+over by 1 each time a number is added. when the array is large enough,
+this takes quite a toll on the runtime.
+
+time complexity for doublerAppend: O(n)
+time complexity for doublerInsert: O(n^2)
+
+
+
